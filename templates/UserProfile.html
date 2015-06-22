@@ -1,0 +1,47 @@
+<title>UserProfile</title>
+
+<!--Show/Hide buttons for details-->
+<button id="minbut">Hide</button>
+<button id="maxbut">Show</button>
+
+
+<div><!--Container-->
+    <div ng-app><!--ng-app start-->
+      <div ng-controller="UserProfileController"><!--Controller container-->
+        <h2>User Profile</h2>
+        <div ng-hide="editorEnabled" id="text">
+
+          <button href="#users/:Id" ng-click="enableEditor()">Edit User Profile</button>
+          <br />
+
+          <p>First Name: {{user.firstName}}</p>
+          <p>Last Name: {{user.lastName}}</p>
+          <p>Phone: {{user.phone}}</p>
+          <p>Email: {{user.email}}</p>
+
+        </div>
+        <div ng-show="editorEnabled"><!--Show editor enabled!-->
+          <input ng-model="editablefirstName" ng-show="editorEnabled"><br />
+          <input ng-model="editablelastName" ng-show="editorEnabled"><br />
+          <input ng-model="editablephone" ng-show="editorEnabled"><br />
+          <input ng-model="editableemail" ng-show="editorEnabled">
+          <a href="#users/:Id" ng-click="save()">Save</a><!--Saves on click(doesn't actually save information on page yet. Code this in?)-->
+          or
+          <a href="#users/:Id" ng-click="disableEditor()">cancel</a>.<!--Cancel button(disables editorEnabled)-->
+        </div><!--END show editor enabling-->
+      </div><!--END controller container-->
+    </div><!--END ng-app-->
+
+    <!--Script for Show/Hide buttons(jquery)-->
+    <script type="text/javascript">
+
+    $("#minbut").click(function(){
+        $("#text").hide(200);    
+    });
+
+    $("#maxbut").click(function(){
+        $("#text").show(200);    
+    });
+
+    </script>
+</div> <!--/Container-->

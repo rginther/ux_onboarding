@@ -1,0 +1,26 @@
+body {
+    background-color: #F5F5F5;
+    padding-top:55px;
+    border-color: blue;
+}
+
+#HomeBody {
+    text-align: left;
+}
+
+button {
+	color: black;
+	cursor: pointer;
+	float: right;
+}
+
+#Delete {
+	color: black;
+	cursor: pointer;
+	float: right;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}

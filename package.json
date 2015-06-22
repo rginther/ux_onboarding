@@ -1,0 +1,19 @@
+{
+    "name" : "SampleGrunt",
+    "version" : "0.1.0",
+    "author" : "River Ginther",
+    "private" : true,
+
+    "devDependencies" : {
+        "grunt" :                       "~0.4.0", 
+        "grunt-contrib-connect":		"*",
+        "grunt-contrib-cssmin":         "*",
+        "grunt-contrib-sass":           "*",
+        "grunt-contrib-uglify":         "*",
+        "grunt-contrib-watch":          "*",
+        "grunt-cssc":                   "*",
+        "grunt-htmlhint":               "*",
+        "grunt-contrib-compass": 		"*",
+        "matchdep":                     "*"
+    }
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="sampleApp">
+
+	<head>
+        
+		<title>index</title>
+
+        <!--Linked Pages-->
+        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="styles.css">
+
+
+        <!--Jquery library-->
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+
+        <!--Angular libraies-->
+        <script src="node_modules/angular/angular.js"></script>
+        <script src="node_modules/angular-route/angular-route.js"></script>
+
+        <!--JS Pages-->
+        <script src="app.js"></script>
+
+        <!--Service Pages-->
+        <script src="node_modules/angular-resource/angular-resource.js"></script>
+        <script src="services.js"></script>
+
+	</head>
+
+	<body>
+
+    <div class="container"> <!--Container-->
+        <div class="row">
+        <div class="col-md-3">
+           <ul class="nav" id="HomeBody">
+
+                <!--Links for partials-->
+                <li><a href="#users"> Users </a></li>
+                <li><a href="#users/:Id"> User Details </a></li>
+                <li><a href="#Create">Create User</a></li>
+
+            </ul>
+        </div>
+        <div class="col-md-9">
+
+            <div ng-view></div>
+
+        </div>
+
+        </div>
+
+    </div><!--/Container-->
+
+  </body>
+
+</html>

@@ -1,0 +1,21 @@
+<title>User Lists</title>
+
+
+<div class="container"><!--Container-->
+
+	<h2>Users</h2>
+
+	<ul class="user">
+		<li ng-repeat="user in users" id="text">
+
+			<a id="Delete" type="button" ng-click="remove(user._id)">[x]</a>
+			
+			<p>First Name: {{user.firstName}}</p>
+			<p>Last Name: {{user.lastName}}</p>
+			<p>Phone: {{user.phone}}</p>
+			<p>Email: {{user.email}}</p>
+			<br />
+
+		</li>
+	</ul>
+</div><!--/Container-->
