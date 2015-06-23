@@ -33,16 +33,10 @@ sampleApp.controller('ListUsersController', ['$scope', 'UsersService',
   function($scope, UsersService) {
     $scope.users = UsersService.query();
 
-    /*$scope.delete = function(user) { //Doesn't work..Keeping for reference.
-      user.remove(function(){
-        $scope.users = UsersService.query();
-      });
-    }*/
-
-    $scope.remove = function(item) { 
-      var index = $scope.users.indexOf(item);
-      $scope.users.splice(index);
-      UsersService.remove({ id: item });
+    $scope.remove = function(user) { 
+      var index = $scope.users.indexOf(user);
+      $scope.users.splice(index, 1);
+      UsersService.remove({ id: user._id });
     }
 
     $scope.add = function() {

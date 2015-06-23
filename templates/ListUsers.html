@@ -8,7 +8,7 @@
 	<ul class="user">
 		<li ng-repeat="user in users" id="text">
 
-			<a id="Delete" type="button" ng-click="remove(user._id)">[x]</a>
+			<button id="Delete" type="button" ng-click="remove(user)">Delete</button>
 			
 			<p>First Name: {{user.firstName}}</p>
 			<p>Last Name: {{user.lastName}}</p>
