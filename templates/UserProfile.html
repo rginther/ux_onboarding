@@ -7,27 +7,29 @@
 
 <div><!--Container-->
     <div ng-app><!--ng-app start-->
-      <div ng-controller="UserProfileController"><!--Controller container-->
-        <h2>User Profile</h2>
+      <div ><!--Controller container-->
+        <h2>{{user.firstName}} {{user.lastName}}</h2>
         <div ng-hide="editorEnabled" id="text">
 
-          <button href="#users/:Id" ng-click="enableEditor()">Edit</button>
-          <br />
+            <button ng-click="enableEditor()">Edit</button>
+            <br />
 
-          <p>First Name: {{user.firstName}}</p>
-          <p>Last Name: {{user.lastName}}</p>
-          <p>Phone: {{user.phone}}</p>
-          <p>Email: {{user.email}}</p>
+            <p>
+            <span>First Name: {{user.firstName}}</span>
+            <span>Last Name: {{user.lastName}}</span>
+            <span>Phone: {{user.phone}}</span>
+            <span>Email: {{user.email}}</span>
+            </p>
 
         </div>
         <div ng-show="editorEnabled"><!--Show editor enabled!-->
-          <input ng-model="editablefirstName" ng-show="editorEnabled"><br />
+          <input ng-model="editablefirstName" ng-show="editorEnabled"><br /> <!--Take out br tags-->
           <input ng-model="editablelastName" ng-show="editorEnabled"><br />
           <input ng-model="editablephone" ng-show="editorEnabled"><br />
           <input ng-model="editableemail" ng-show="editorEnabled">
-          <a href="#users/:Id" ng-click="save()">Save</a><!--Saves on click(doesn't actually save information on page yet. Code this in?)-->
+          <a ng-click="update()">Save</a><!--Saves on click(doesn't actually save information on page yet. Code this in?)-->
           or
-          <a href="#users/:Id" ng-click="disableEditor()">cancel</a>.<!--Cancel button(disables editorEnabled)-->
+          <a ng-click="disableEditor()">cancel</a>.<!--Cancel button(disables editorEnabled)-->
         </div><!--END show editor enabling-->
       </div><!--END controller container-->
     </div><!--END ng-app-->

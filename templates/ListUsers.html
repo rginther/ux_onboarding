@@ -9,11 +9,12 @@
 		<li ng-repeat="user in users" id="text">
 
 			<button id="Delete" type="button" ng-click="remove(user)">Delete</button>
+			<a type="button" href="#/users/{{user._id}}"><button>View</button></a>
 			
-			<p>First Name: {{user.firstName}}</p>
-			<p>Last Name: {{user.lastName}}</p>
-			<p>Phone: {{user.phone}}</p>
-			<p>Email: {{user.email}}</p>
+			<p><span>First Name: {{user.firstName}}</span>
+			<span>Last Name: {{user.lastName}}</span>
+			<span>Phone: {{user.phone}}</span>
+			<span>Email: {{user.email}}</p>
 			<br />
 
 		</li>
