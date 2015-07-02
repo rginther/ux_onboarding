@@ -3,7 +3,8 @@
 // sampleApp module
 var sampleApp = angular.module('sampleApp', [
     'ngRoute',
-    'sampleAppservices'
+    'sampleAppservices',
+    'app.directives.userInfo'
 ]);
 
 // Config Block
@@ -18,7 +19,7 @@ sampleApp.config(['$routeProvider',
                 templateUrl: 'templates/UserProfile.html',
                 controller: 'UserProfileController'
             }).
-            when('/Create', {
+            when('/create', {
                 templateUrl: 'templates/CreateUser.html',
                 controller: 'ListUsersController'
             }).
@@ -52,24 +53,23 @@ sampleApp.controller('ListUsersController', ['$scope', 'UsersService',
 ]);  
 
 //UserProfileController for sampleApp
-sampleApp.controller('UserProfileController', ['$scope', '$routeParams', 'UsersService',
-  function($scope, $routeParams, UsersService) {
+sampleApp.controller('UserProfileController', ['$scope', '$resource', '$routeParams', 'UsersService',
+  function($scope, $resource, $routeParams, UsersService) {
 
-      //Looping through the users for the id
-      UsersService.query({}, function(users) {
-        for(var i = 0; i < users.length; i++) {
-          if (users[i]['_id'] == $routeParams.id) {
-            $scope.user = users[i];
-            break;
-          }
+    //Looping through the users for the id ----------------------------------->
+    UsersService.query({}, function(users) {
+      for(var i = 0; i < users.length; i++) {
+        if (users[i]['_id'] == $routeParams.id) {
+          $scope.user = users[i];
+          break;
         }
-      });
-      
+      }
+    });
 
+    //Start of editing --------------------------------------->
     UsersService.query({}, function(users) {
       $scope.users = users;
 
-      //Start of editing
       $scope.editorEnabled = false;
     
       $scope.enableEditor = function() {
@@ -77,20 +77,20 @@ sampleApp.controller('UserProfileController', ['$scope', '$routeParams', 'UsersS
         $scope.editablefirstName = $scope.user.firstName;
         $scope.editablelastName = $scope.user.lastName;
         $scope.editablephone = $scope.user.phone;
-        $scope.editableemail = $scope.user.email;
       };
       
       $scope.disableEditor = function() {
         $scope.editorEnabled = false;
       };
-      
-      $scope.update = function() {
-        UsersService.user.firstName = $scope.editablefirstName;
+
+      $scope.save = function() {
+        $scope.user.firstName = $scope.editablefirstName;
         $scope.user.lastName = $scope.editablelastName;
-        $scope.user.phone = $scope.editablephone;
-        $scope.user.email = $scope.editableemail;
+        $scope.user.phone = $scope.editablephone;   
+
+        UsersService.save({id: $scope.user._id}, $scope.user);
         $scope.disableEditor();
-      };
+      }
     });
   }
 ]);

@@ -10,12 +10,10 @@
 
 			<button id="Delete" type="button" ng-click="remove(user)">Delete</button>
 			<a type="button" href="#/users/{{user._id}}"><button>View</button></a>
-			
-			<p><span>First Name: {{user.firstName}}</span>
-			<span>Last Name: {{user.lastName}}</span>
-			<span>Phone: {{user.phone}}</span>
-			<span>Email: {{user.email}}</p>
-			<br />
+
+			<!--Adding in the userInfo with a directive-->
+			<user-info user="user"></user-info>
+			<legend></legend>
 
 		</li>
 	</ul>

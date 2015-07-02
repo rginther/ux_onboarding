@@ -4,38 +4,33 @@
 <button id="minbut">Hide</button>
 <button id="maxbut">Show</button>
 
+<div ng-app><!--ng-app start-->
 
-<div><!--Container-->
-    <div ng-app><!--ng-app start-->
-      <div ><!--Controller container-->
-        <h2>{{user.firstName}} {{user.lastName}}</h2>
-        <div ng-hide="editorEnabled" id="text">
+    <p><span><h1>{{user.firstName}} {{user.lastName}}</h1></span></p>
+    <legend></legend>
+    
+    <div ng-hide="editorEnabled" id="text">
 
-            <button ng-click="enableEditor()">Edit</button>
-            <br />
+        <button ng-click="enableEditor()">Edit</button>
 
-            <p>
-            <span>First Name: {{user.firstName}}</span>
-            <span>Last Name: {{user.lastName}}</span>
-            <span>Phone: {{user.phone}}</span>
-            <span>Email: {{user.email}}</span>
-            </p>
+        <!--Adding in the userInfo with a directive-->
+        <user-info user="user"></user-info>
 
-        </div>
-        <div ng-show="editorEnabled"><!--Show editor enabled!-->
-          <input ng-model="editablefirstName" ng-show="editorEnabled"><br /> <!--Take out br tags-->
-          <input ng-model="editablelastName" ng-show="editorEnabled"><br />
-          <input ng-model="editablephone" ng-show="editorEnabled"><br />
-          <input ng-model="editableemail" ng-show="editorEnabled">
-          <a ng-click="update()">Save</a><!--Saves on click(doesn't actually save information on page yet. Code this in?)-->
-          or
-          <a ng-click="disableEditor()">cancel</a>.<!--Cancel button(disables editorEnabled)-->
-        </div><!--END show editor enabling-->
-      </div><!--END controller container-->
-    </div><!--END ng-app-->
+    </div>
 
-    <!--Script for Show/Hide buttons(jquery)-->
-    <script type="text/javascript">
+    <form ng-show="editorEnabled"><!--Show editor enabled!-->
+        <input ng-model="editablefirstName" ng-show="editorEnabled"><br /> <!--Take out br tags-->
+        <input ng-model="editablelastName" ng-show="editorEnabled"><br />
+        <input ng-model="editablephone" ng-show="editorEnabled"><br />
+        <p> Email cannot be changed </p>
+
+        <input type="submit" ng-click="save()" value="Save" /><!--Saves on click-->
+        <input type="button" ng-click="disableEditor()" value="Cancel"/><!--Cancel button(disables editorEnabled)-->
+    </form><!--END show editor enabling-->
+</div><!--END ng-app-->
+
+<!--Script for Show/Hide buttons(jquery)-->
+<script type="text/javascript">
 
     $("#minbut").click(function(){
         $("#text").hide(200);    
@@ -45,5 +40,4 @@
         $("#text").show(200);    
     });
 
-    </script>
-</div> <!--/Container-->
+</script>
