@@ -41,13 +41,14 @@ sampleApp.controller('ListUsersController', ['$scope', 'UsersService',
     }
 
     $scope.add = function() {
-      alert('User is created!');
       UsersService.add({}, {
         'firstName': this.firstName,
         'lastName': this.lastName,
         'phone': this.phone,
         'email': this.email
       });
+      document.forms['createForm'].reset()
+      alert('Thank you!');
     };
   }
 ]);  

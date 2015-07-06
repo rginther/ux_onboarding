@@ -3,18 +3,20 @@
 
 <div class="container"><!--Container-->
 
-	<h2>Users</h2>
+	<legend><h1>List of Users:</h1></legend>
 
-	<ul class="user">
-		<li ng-repeat="user in users" id="text">
+	<br />
+
+	<div class="user">
+		<div ng-repeat="user in users" id="text">
 
 			<button id="Delete" type="button" ng-click="remove(user)">Delete</button>
 			<a type="button" href="#/users/{{user._id}}"><button>View</button></a>
 
 			<!--Adding in the userInfo with a directive-->
-			<user-info user="user"></user-info>
+			<h4>{{user.firstName}} {{user.lastName}}</h4>
 			<legend></legend>
 
-		</li>
-	</ul>
+		</div>
+	</div>
 </div><!--/Container-->

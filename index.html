@@ -16,22 +16,22 @@
         <!--Angular libraies-->
         <script src="node_modules/angular/angular.js"></script>
         <script src="node_modules/angular-route/angular-route.js"></script>
+        <script src="node_modules/angular-resource/angular-resource.js"></script>
 
         <!--JS Pages-->
         <script src="app.js"></script>
 
-        <!--Service Pages-->
-        <script src="node_modules/angular-resource/angular-resource.js"></script>
+        <!--Service Page-->
         <script src="services.js"></script>
 
 	</head>
 
 	<body>
 
-    <div class="container"> <!--Container-->
+    <div class="container-fluid"> <!--Container-->
         <div class="row">
-        <div class="col-md-3">
-           <ul class="nav" id="HomeBody">
+        <div class="col-md-2">
+           <ul style="font-size: 18px;" class="nav" id="HomeBody">
 
                 <!--Links for partials-->
                 <li><a href="#users"> Users </a></li>
@@ -39,15 +39,15 @@
 
             </ul>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-6">
 
-            <div ng-view></div>
-
-        </div>
+            <div ng-view></div> <!--The VIEW-->
 
         </div>
 
-    </div><!--/Container-->
+        </div>
+
+    </div> <!--/Container-->
 
   </body>
 
