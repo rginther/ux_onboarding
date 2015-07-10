@@ -1,13 +1,13 @@
 'use strict'; //Using STRICT text
 
-// sampleApp module
+// sampleApp module----------------------------------------------------------------------
 var sampleApp = angular.module('sampleApp', [
-    'ngRoute',
-    'sampleAppservices',
-    'app.directives.userInfo'
+    'ngRoute',//ngRoute, not UI-Router
+    'sampleAppservices', //Service
+    'app.directives.userInfo' //Directive
 ]);
 
-// Config Block
+// Config Block----------------------------------------------------------------------
 sampleApp.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
@@ -29,17 +29,19 @@ sampleApp.config(['$routeProvider',
 
 }]);
 
-//ListUsersController for sampleApp
+//ListUsersController for sampleApp----------------------------------------------------------------------
 sampleApp.controller('ListUsersController', ['$scope', 'UsersService',
   function($scope, UsersService) {
     $scope.users = UsersService.query();
 
+    //remove function-----------------------------------
     $scope.remove = function(user) { 
       var index = $scope.users.indexOf(user);
       $scope.users.splice(index, 1);
       UsersService.remove({ id: user._id });
     }
 
+    //add function-----------------------------------
     $scope.add = function() {
       UsersService.add({}, {
         'firstName': this.firstName,
@@ -47,17 +49,19 @@ sampleApp.controller('ListUsersController', ['$scope', 'UsersService',
         'phone': this.phone,
         'email': this.email
       });
+
+      //This resets the createForm inputs after submit
       document.forms['createForm'].reset()
       alert('Thank you!');
     };
   }
 ]);  
 
-//UserProfileController for sampleApp
+//UserProfileController for sampleApp----------------------------------------------------------------------
 sampleApp.controller('UserProfileController', ['$scope', '$resource', '$routeParams', 'UsersService',
   function($scope, $resource, $routeParams, UsersService) {
 
-    //Looping through the users for the id ----------------------------------->
+    //Looping through the users for the id-----------------------------------
     UsersService.query({}, function(users) {
       for(var i = 0; i < users.length; i++) {
         if (users[i]['_id'] == $routeParams.id) {
@@ -67,7 +71,7 @@ sampleApp.controller('UserProfileController', ['$scope', '$resource', '$routePar
       }
     });
 
-    //Start of editing --------------------------------------->
+    //Start of editing---------------------------------------
     UsersService.query({}, function(users) {
       $scope.users = users;
 

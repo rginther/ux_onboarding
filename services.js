@@ -1,6 +1,6 @@
 'use strict';
 
-//sampleAppservice GET method
+//sampleAppservice Factory----------------------------------------------------------------------
 var sampleAppservices = angular.module('sampleAppservices', ['ngResource']);
 
 sampleAppservices.factory('UsersService', ['$resource',
@@ -13,6 +13,7 @@ sampleAppservices.factory('UsersService', ['$resource',
     });
   }]);
 
+//Directive----------------------------------------------------------------------
 angular.module('app.directives.userInfo', [])
   .directive('userInfo', function() {
     return{
