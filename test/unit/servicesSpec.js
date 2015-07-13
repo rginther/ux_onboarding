@@ -1,4 +1,4 @@
-//main describe-------------------------------------------------------------------------------------
+//main describe -------------------------------------------------------------------------------------
 describe('My Suite', function(){
   var $scope, httpBackend, service, handler;
   beforeEach(module('sampleAppservices'));
@@ -18,7 +18,7 @@ describe('My Suite', function(){
                 .respond([ {Name: 'River'}, {Name: 'Josh'} ]); //Array of fake name objects
   }));
 
-  //nested describe-------------------------------------------------------------------------------------
+  //nested describe -------------------------------------------------------------------------------------
   describe('Testing', function(){
 
     //it -------------------------------------------
@@ -32,15 +32,16 @@ describe('My Suite', function(){
         result = result_;
       });
 
-      //flushing -----
+      //flushing
       $httpBackend.flush();
 
+      //Expects
       expect(result[0].Name).toEqual('River');
     });
 
     //it -------------------------------------------
     it('should POST data to the server', function() {
-      //using $httpBackend to POST beforeEach -----
+      //using $httpBackend to POST -----
       $httpBackend.when('POST', 'http://localhost:24149/users').respond();
 
       //expecting to POST data -----
@@ -53,28 +54,28 @@ describe('My Suite', function(){
         'email': 'Email'
       });
 
-      //flushing -----
+      //flushing 
       $httpBackend.flush();
     });
 
     //it -------------------------------------------
     it('should PUT the data', function() {
-      //using $httpBackend to PUT beforeEach -----
-      $httpBackend.when('PUT', 'http://localhost:24149/users/5594638d82c1ab8751cb1da0')
+      //using $httpBackend to PUT -----
+      $httpBackend.when('PUT', 'http://localhost:24149/users')
         .respond();
 
       //expecting to PUT data -----
-      $httpBackend.expectPUT('http://localhost:24149/users/5594638d82c1ab8751cb1da0');
+      $httpBackend.expectPUT('http://localhost:24149/users');
 
-      service.save({ id: '5594638d82c1ab8751cb1da0' }, {Name: 'River'});
+      service.save({ id: '5594638d82c1ab8751cb1da0' });
 
-      //flushing -----
+      //flushing
       $httpBackend.flush();
     });
 
     //it -------------------------------------------
     it('should DELETE the data', function() {
-      //using $httpBackend to DELETE beforeEach -----
+      //using $httpBackend to DELETE -----
       $httpBackend.when('DELETE', 'http://localhost:24149/users/5594638d82c1ab8751cb1da0')
         .respond();
 
@@ -83,7 +84,7 @@ describe('My Suite', function(){
 
       service.remove({ id: '5594638d82c1ab8751cb1da0' });
 
-      //flushing -----
+      //flushing
       $httpBackend.flush();
     });
   });
