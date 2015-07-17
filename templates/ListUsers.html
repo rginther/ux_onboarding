@@ -10,8 +10,8 @@
 	<div class="user">
 		<div ng-repeat="user in users" id="text">
 
-			<button id="Delete" type="button" ng-click="remove(user)">Delete</button><!--Delete button-->
-			<a type="button" href="#/users/{{user._id}}"><button>View</button></a><!--View button-->
+			<button class="Delete" type="button" ng-click="remove(user)">Delete</button><!--Delete button-->
+			<a type="button" href="#/users/{{user._id}}"><button class="ViewBtn">View</button></a><!--View button-->
 
 			<!--Adding in the userInfo with a directive-->
 			<h4>{{user.firstName}} {{user.lastName}}</h4>

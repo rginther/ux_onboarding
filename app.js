@@ -41,6 +41,7 @@ sampleApp.controller('ListUsersController', ['$scope', 'UsersService',
       UsersService.remove({ id: user._id });
     }
 
+
     //add function -----------------------------------
     $scope.add = function() {
       UsersService.add({}, {
@@ -52,7 +53,6 @@ sampleApp.controller('ListUsersController', ['$scope', 'UsersService',
 
       //This resets the createForm inputs after submit
       document.forms['createForm'].reset()
-      alert('Thank you!');
     };
   }
 ]);  
@@ -73,6 +73,8 @@ sampleApp.controller('UserProfileController', ['$scope', '$resource', '$routePar
     UsersService.query({}, function(users) {
       $scope.find(users);
     });
+
+    $scope.userInfo = true
 
     //Start of editing ---------------------------------------
     $scope.editorEnabled = false;
