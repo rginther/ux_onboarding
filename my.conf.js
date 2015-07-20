@@ -21,9 +21,7 @@ module.exports = function(config) {
       'node_modules/angular-resource/angular-resource.js',
       'app.js',
       '*.js',
-      'test/unit/**/*.js',
-      '*.html',
-      '**/*.html'
+      'test/unit/**/*.js'
     ],
 
 

@@ -20,7 +20,7 @@ describe('ux_onboarding App', function() {
 
 		// queue 150ms wait
 		origFn.call(browser.driver.controlFlow(), function() {
-			return protractor.promise.delayed(200);
+			return protractor.promise.delayed(0);
 		});
 
 		return origFn.apply(browser.driver.controlFlow(), args);
@@ -40,6 +40,7 @@ describe('ux_onboarding App', function() {
 			email.sendKeys(d);
 
 			element(by.css('.Add')).click();
+			browser.switchTo().alert().accept();
 		}
 		//Create Tab-----------------------------------------------
 
@@ -104,5 +105,3 @@ describe('ux_onboarding App', function() {
 		});
 	});
 });
-
-//Tooltips, validators

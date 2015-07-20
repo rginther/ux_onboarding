@@ -53,6 +53,7 @@ sampleApp.controller('ListUsersController', ['$scope', 'UsersService',
 
       //This resets the createForm inputs after submit
       document.forms['createForm'].reset()
+      alert('Thank you!');
     };
   }
 ]);  
