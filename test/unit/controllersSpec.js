@@ -31,7 +31,6 @@ describe('ListUsersController', function () {
 
   //it -------------------------------------------
   it('should add a user to the list of users', function() {
-    dump(scope.users);
 
     scope.users = service.add({}, {
       'firstName': 'First',

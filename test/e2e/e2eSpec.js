@@ -3,7 +3,7 @@
 describe('ux_onboarding App', function() {
 	var mockModule;
 	beforeEach(function() {
-	    mockModule = require('./mocks');
+	    mockModule = require('./e2eMocks');
 
 	    browser.addMockModule('userManagementMock', mockModule.signup_request);
 

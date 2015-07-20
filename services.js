@@ -18,9 +18,7 @@ angular.module('app.directives.userInfo', [])
   .directive('userInfo', function() {
     return{
       restrict: 'E',
-      scope: {
-        user: '='
-      },
-      templateUrl: 'templates/directives/userInfo.html',
+      replace: true,
+      template: '<p style="font-size: 18px;"><span>First Name: {{user.firstName}}</span><span>Last Name: {{user.lastName}}</span><span>Phone: {{user.phone}}</span><span>Email: {{user.email}}</span></p>'
     };
   });
