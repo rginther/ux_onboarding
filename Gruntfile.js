@@ -1,27 +1,27 @@
 module.exports = function(grunt) {
 
   // load all grunt tasks
-  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+  require('load-grunt-tasks')(grunt);
 
   var paths = {
     public: 'dist/',
-    private: 'src/',
+    private: 'src/main/client/',
     modules: 'node_modules/',
     temp: 'temp/'
   };
   var files = {
     js: [
-      '<%= paths.private %>main/client/js/*.js',
+      '<%= paths.private %>js/*.js',
       '<%= paths.temp %>js/templates.js'
     ],
     css: [
-      '<%= paths.private %>main/client/css/*.css'
+      '<%= paths.private %>css/*.css'
     ],
 
     dependencies : {
       js: [
         'node_modules/angular/angular.js',
-        'node_modules/angular-router/angular-router.js',
+        'node_modules/angular-route/angular-route.js',
         'node_modules/angular-resource/angular-resource.js',
         'node_modules/angular-mocks/angular-mocks.js'
       ]
@@ -45,7 +45,7 @@ module.exports = function(grunt) {
         files: [
           {
             cwd: '<%=paths.private %>',
-            src: 'main/client/partials/*.html',
+            src: 'partials/*.html',
             dest:'<%= paths.temp %>js/templates.js'
           }
         ]
@@ -97,7 +97,7 @@ module.exports = function(grunt) {
   	      port: 8080,
   	      open: true,
   	      keepalive: true,
-  	      base: './'
+  	      base: paths.public
   	    }
   	  }
   	},

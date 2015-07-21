@@ -20,7 +20,7 @@ describe('ux_onboarding App', function() {
 
 		// queue 150ms wait
 		origFn.call(browser.driver.controlFlow(), function() {
-			return protractor.promise.delayed(0);
+			return protractor.promise.delayed(100);
 		});
 
 		return origFn.apply(browser.driver.controlFlow(), args);
