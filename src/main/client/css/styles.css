@@ -4,17 +4,7 @@ body {
     border-color: blue;
 }
 
-#HomeBody {
-    text-align: left;
-}
-
 button {
-	color: black;
-	cursor: pointer;
-	float: right;
-}
-
-#Delete {
 	color: black;
 	cursor: pointer;
 	float: right;
