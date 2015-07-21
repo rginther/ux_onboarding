@@ -7,7 +7,7 @@ describe('ux_onboarding App', function() {
 
 	    browser.addMockModule('userManagementMock', mockModule.signup_request);
 
-	    browser.get('http://localhost:64478');
+	    browser.get('http://localhost:8080');
 	});
 
 	

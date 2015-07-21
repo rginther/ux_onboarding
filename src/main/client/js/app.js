@@ -12,15 +12,15 @@ sampleApp.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
             when('/users', {
-                templateUrl: 'templates/ListUsers.html',
+                templateUrl: 'partials/ListUsers.html',
                 controller: 'ListUsersController'
             }).
             when('/users/:id', {
-                templateUrl: 'templates/UserProfile.html',
+                templateUrl: 'partials/UserProfile.html',
                 controller: 'UserProfileController'
             }).
             when('/create', {
-                templateUrl: 'templates/CreateUser.html',
+                templateUrl: 'partials/CreateUser.html',
                 controller: 'ListUsersController'
             }).
             otherwise({
