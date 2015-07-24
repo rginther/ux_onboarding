@@ -84,7 +84,7 @@ module.exports = function(grunt) {
   	  server: {
   	    options: {
   	      port: 8080,
-  	      open: true,
+  	      //open: true,
   	      base: paths.public
   	    }
   	  }
@@ -97,19 +97,19 @@ module.exports = function(grunt) {
       tasks:['clean:start', 'ngtemplates', 'concat', 'clean:end', 'copy']}
     },
 
-    /*karma: {
+    karma: {
       options: {
         // point all tasks to karma config file
-        configFile: 'test/client/unit/karma.conf.js'
+        configFile: 'src/test/client/karma.conf.js',
       },
       unit: {
         // run tests once instead of continuously
         singleRun: true
       }
-    }*/
+    }
 
   });
 
-  grunt.registerTask('default', ['clean:start', 'ngtemplates', 'concat', 'clean:end', 'copy', 'connect', 'watch']);
+  grunt.registerTask('default', ['karma', 'clean:start', 'ngtemplates', 'concat', 'clean:end', 'copy', 'connect', 'watch']);
 
 }

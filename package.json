@@ -1,8 +1,4 @@
 {
-  "name": "SampleGrunt",
-  "version": "0.1.0",
-  "author": "River Ginther",
-  "private": true,
   "dependencies": {
     "angular": "*",
     "angular-route": "*",
@@ -15,14 +11,12 @@
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-concat": "^0.5.1",
     "grunt-contrib-connect": "*",
-    "grunt-contrib-cssmin": "*",
     "grunt-contrib-watch": "*",
     "grunt-copy": "^0.1.0",
-    "jasmine-core": "node_modules/jasmine-core",
-    "karma": "^0.12.37",
+    "grunt-karma": "^0.12.0",
+    "karma": "^0.13.0",
     "karma-chrome-launcher": "^0.2.0",
     "karma-jasmine": "^0.3.6",
-    "karma-ng-html2js-preprocessor": "^0.1.2",
     "load-grunt-tasks": "^3.2.0",
     "matchdep": "*"
   }
