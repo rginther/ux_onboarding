@@ -1,11 +1,11 @@
 module.exports = function(grunt) {
 
   // load all grunt tasks
-  require('load-grunt-tasks')(grunt);
+  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
   var paths = {
     public: 'dist/',
-    private: 'src/main/client/',
+    private: 'src/',
     modules: 'node_modules/',
     temp: 'temp/'
   };
@@ -57,7 +57,7 @@ module.exports = function(grunt) {
           {
             expand: true,
             flatten: true,
-            src: 'src/main/client/index.html',
+            src: 'src/index.html',
             dest: '<%= paths.public %>'
           }
         ]
@@ -78,17 +78,6 @@ module.exports = function(grunt) {
       }
     },
 
-    watch: {
-      js: {
-        files: files.js,
-        tasks: ['concat']
-      },
-      others: {
-        files: files.css,
-        tasks: ['copy']
-      }
-    },
-
 //Everything else -------------------------------------------------------
 
     connect: {
@@ -96,40 +85,28 @@ module.exports = function(grunt) {
   	    options: {
   	      port: 8080,
   	      open: true,
-  	      keepalive: true,
   	      base: paths.public
   	    }
   	  }
   	},
 
-    compass: {
-      dev: {
-        options: {
-          config: 'config.rb',
-          force: true
-        }
-      }
-    },
-
      //watching the files for change, then reloading with LiveReload
     watch: {
-      sass: {
-        files: ['assets/sass/**/*.scss'],
-        tasks: ['compass:dev']
-      },
+      src: {
+      files: [files.js, files.css, 'src/partials/*.html', 'src/index.html'],
+      tasks:['clean:start', 'ngtemplates', 'concat', 'clean:end', 'copy']}
+    },
 
-      js: {
-        files: ['assets/js/main.js', 'components/**/*.js'],
-        tasks: ['uglify']
+    /*karma: {
+      options: {
+        // point all tasks to karma config file
+        configFile: 'test/client/unit/karma.conf.js'
       },
-
-      livereload: {
-        files: ['*.html', '*.css', '*.js', 'partials/*.html', 'src/test/client/unit/*.js', 'src/test/client/*.js'],
-        options: {
-          livereload: true
-        }
-      },
-    }
+      unit: {
+        // run tests once instead of continuously
+        singleRun: true
+      }
+    }*/
 
   });
 

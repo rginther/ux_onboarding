@@ -1,0 +1,22 @@
+<div class"container">
+  <div ng-controller="ListUsersController">
+    <form id="createForm" name="createForm">
+
+      <legend><h1>Create User</h1></legend>
+
+      <button ng-disabled="createForm.$invalid" class="Add" type="button" ng-click="add()">Add User</button>
+
+      <p class="formInput">
+        <label>First Name: </label><span><input type="text" ng-model="firstName" placeholder="First Name" required></span>
+        <label>Last Name: </label><span><input type="text" ng-model="lastName" placeholder="Last Name" required></span>
+        <label>Phone: </label><span><input type="text" ng-model="phone" placeholder="xxx-xxx-xxxx" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"></span>
+        <label>Email: </label><span><input name="email" id="email" type="email" ng-model="email" placeholder="example@email.com" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"></span><br />
+      </p>
+
+      <div class="alert alert-success" role="alert" ng-show="userMessage">{{prevUser.firstName}} {{prevUser.lastName}} has been created!</div>
+
+      <legend></legend>
+
+    </form>
+  </div>
+</div>

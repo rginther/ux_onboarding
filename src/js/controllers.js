@@ -1,38 +1,8 @@
-'use strict'; //Using STRICT text
-
-// sampleApp module ----------------------------------------------------------------------
-var sampleApp = angular.module('sampleApp', [
-    'ngRoute',//ngRoute, not UI-Router
-    'sampleAppservices', //Service
-    'app.directives.userInfo' //Directive
-]);
-
-// Config Block ----------------------------------------------------------------------
-sampleApp.config(['$routeProvider',
-    function($routeProvider) {
-        $routeProvider.
-            when('/users', {
-                templateUrl: 'partials/ListUsers.html',
-                controller: 'ListUsersController'
-            }).
-            when('/users/:id', {
-                templateUrl: 'partials/UserProfile.html',
-                controller: 'UserProfileController'
-            }).
-            when('/create', {
-                templateUrl: 'partials/CreateUser.html',
-                controller: 'ListUsersController'
-            }).
-            otherwise({
-                redirectTo: '/users'
-            });
-
-}]);
-
 //ListUsersController for sampleApp----------------------------------------------------------------------
-sampleApp.controller('ListUsersController', ['$scope', 'UsersService',
-  function($scope, UsersService) {
+sampleApp.controller('ListUsersController', ['$scope', 'UsersService', '$location', '$window',
+  function($scope, UsersService, $location, $window) {
     $scope.users = UsersService.query();
+
 
     //remove function -----------------------------------
     $scope.remove = function(user) { 
@@ -44,17 +14,20 @@ sampleApp.controller('ListUsersController', ['$scope', 'UsersService',
 
     //add function -----------------------------------
     $scope.add = function() {
-      UsersService.add({}, {
+      $scope.prevUser = {
         'firstName': this.firstName,
         'lastName': this.lastName,
         'phone': this.phone,
         'email': this.email
-      });
+      }
 
-      //This resets the createForm inputs after submit
-      document.forms['createForm'].reset()
-      alert('Thank you!');
+      UsersService.add({}, $scope.prevUser);
+      createForm.reset();
+
+      $scope.userMessage = true
     };
+
+    $scope.orderProp = 'firstName';
   }
 ]);  
 

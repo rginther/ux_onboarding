@@ -15,7 +15,7 @@ describe('My Suite', function(){
 
     //using $httpbackend to GET beforeEach -----
     handler = $httpBackend.when('GET', 'http://localhost:24149/users/5594638d82c1ab8751cb1da0')
-                .respond([ {Name: 'River'}, {Name: 'Josh'} ]); //Array of fake name objects
+                .respond([ {Name: 'River'}, {Name: 'Josh'} ]);
   }));
 
   //nested describe -------------------------------------------------------------------------------------
@@ -32,10 +32,8 @@ describe('My Suite', function(){
         result = result_;
       });
 
-      //flushing
       $httpBackend.flush();
 
-      //Expects
       expect(result[0].Name).toEqual('River');
     });
 
@@ -54,7 +52,6 @@ describe('My Suite', function(){
         'email': 'Email'
       });
 
-      //flushing 
       $httpBackend.flush();
     });
 
@@ -69,7 +66,6 @@ describe('My Suite', function(){
 
       service.save({ id: '5594638d82c1ab8751cb1da0' });
 
-      //flushing
       $httpBackend.flush();
     });
 
@@ -84,7 +80,6 @@ describe('My Suite', function(){
 
       service.remove({ id: '5594638d82c1ab8751cb1da0' });
 
-      //flushing
       $httpBackend.flush();
     });
   });
