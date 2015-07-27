@@ -1,6 +1,4 @@
 # ux_onboarding
-This is the server project required in order to build the UX Intern Onboarding Project.
-
 
 <h3>Dependencies</h3>
 
@@ -15,7 +13,6 @@ nodejs
 <li>Start the mongo daemon.</li>
         -Might need to run a seperate terminal
 <li>Install dependencies with <pre>npm install.</pre></li>
-<li>Run <pre>node index.</pre></li>
 <li>Endpoints should be available at <pre>localhost:24149/</pre></li>
 </ul>
 
@@ -28,7 +25,7 @@ nodejs
 	<li>RUN <pre>webdriver.manager start</pre></li>
 	<li>Unit Testing: RUN <pre>karma start .../karma.conf.js</pre></li>
 	<li>E2E Testing: RUN <pre>Protractor protractor.conf.js</pre></li>
-
-	<li>If the page doesn't open automatically when running grunt in the terminal, 
-		then put <pre>http://localhost:8080/</pre> in your browser after running the setup.</li>
 </ul>
+
+<p>If the page doesn't open automatically when running grunt in the terminal, 
+	then put <pre>http://localhost:8080/</pre> in your browser after running the setup.</p>
