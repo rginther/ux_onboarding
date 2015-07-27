@@ -28,4 +28,7 @@ nodejs
 	<li>RUN <pre>webdriver.manager start</pre></li>
 	<li>Unit Testing: RUN <pre>karma start .../karma.conf.js</pre></li>
 	<li>E2E Testing: RUN <pre>Protractor protractor.conf.js</pre></li>
+
+	<li>If the page doesn't open automatically when running grunt in the terminal, 
+		then put <pre>http://localhost:8080/</pre> in your browser after running the setup.</li>
 </ul>
