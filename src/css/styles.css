@@ -40,9 +40,4 @@ button:focus {
   border-width: 1px;
 }
 
-.ng-dirty.ng-valid {
-  border-color: green;
-  border-width: 1px;
-}
-
 

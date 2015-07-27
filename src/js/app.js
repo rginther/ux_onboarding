@@ -11,16 +11,16 @@ sampleApp.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
             when('/users', {
-                template: "<users query='query' orderProp='orderProp' remove='remove(user)' user='user' users='users'></users>",
-                controller: 'ListUsersController'
+                template: "<users></users>",
+                controller: 'sampleController'
             }).
             when('/users/:id', {
-                template: "<userprofile></userprofile>",
-                controller: 'UserProfileController'
+                template: "<userprofile editor-Enabled='editorEnabled' enable-Editor='enableEditor()' disable-Editor='disableEditor()' save='save()' user='user' user-Info='userInfo' editablefirst-Name='editablefirstName' editablelast-Name='editablelastName' editablephone='editablephone'></userprofile>",
+                controller: 'sampleController'
             }).
             when('/create', {
-                template: "<createuser firstName='firstName' lastName='lastName' phone='phone' email='email' add='add()'></createuser>",
-                controller: 'ListUsersController'
+                template: "<createuser prev-User='prevUser' user-Message='userMessage' user='user' add='add(user)'></createuser>",
+                controller: 'sampleController'
             }).
             otherwise({
                 redirectTo: '/users'

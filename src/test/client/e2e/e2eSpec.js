@@ -19,7 +19,7 @@ describe('ux_onboarding App', function() {
 		var args = arguments;
 
 		origFn.call(browser.driver.controlFlow(), function() {
-			return protractor.promise.delayed(50);
+			return protractor.promise.delayed(150);
 		});
 
 		return origFn.apply(browser.driver.controlFlow(), args);

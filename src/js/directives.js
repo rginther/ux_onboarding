@@ -12,14 +12,7 @@ sampleApp.directive('users', function() {
   return {
     restrict: 'E',
     replace: true,
-    templateUrl: 'partials/ListUsers.html',
-    scope: {
-      query: '=',
-      orderProp: '=',
-      remove: '&',
-      user: '=',
-      users: '='
-    }
+    templateUrl: 'partials/ListUsers.html'
   };
 });
 
@@ -27,7 +20,18 @@ sampleApp.directive('userprofile', function() {
   return {
     restrict: 'E',
     replace: true,
-    templateUrl: 'partials/UserProfile.html'
+    templateUrl: 'partials/UserProfile.html',
+    scope: {
+      user: '=',
+      userInfo: '=',
+      enableEditor: '&',
+      disableEditor: '&',
+      editorEnabled: '=',
+      editablefirstName: '=',
+      editablelastName: '=',
+      editablephone: '=',
+      save: '&'
+    }
   };
 });
 
@@ -37,10 +41,9 @@ sampleApp.directive('createuser', function() {
     replace: true,
     templateUrl: 'partials/CreateUser.html',
     scope: {
-      firstName: '=',
-      lastName: '=',
-      phone: '=',
-      email: '=',
+      user: '=',
+      userMessage: '=',
+      prevUser: '=',
       add: '&'
     }
   };

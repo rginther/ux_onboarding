@@ -1,6 +1,6 @@
 //ListUsersController for sampleApp----------------------------------------------------------------------
-sampleApp.controller('ListUsersController', ['$scope', 'UsersService', '$location', '$window',
-  function($scope, UsersService, $location, $window) {
+sampleApp.controller('sampleController', ['$scope', 'UsersService', '$routeParams',
+  function($scope, UsersService, $routeParams) {
     $scope.users = UsersService.query();
 
 
@@ -13,27 +13,21 @@ sampleApp.controller('ListUsersController', ['$scope', 'UsersService', '$locatio
 
 
     //add function -----------------------------------
-    $scope.add = function() {
+    $scope.add = function(user) {
       $scope.prevUser = {
-        'firstName': this.firstName,
-        'lastName': this.lastName,
-        'phone': this.phone,
-        'email': this.email
+        'firstName': user.firstName,
+        'lastName': user.lastName,
+        'phone': user.phone,
+        'email': user.email
       }
 
       UsersService.add({}, $scope.prevUser);
       createForm.reset();
 
-      $scope.userMessage = true
+      $scope.userMessage = true;
     };
 
     $scope.orderProp = 'firstName';
-  }
-]);  
-
-//UserProfileController for sampleApp ----------------------------------------------------------------------
-sampleApp.controller('UserProfileController', ['$scope', '$resource', '$routeParams', 'UsersService',
-  function($scope, $resource, $routeParams, UsersService) {
 
     //Looping through the users for the id -----------------------------------
     $scope.find = function(users) {
@@ -47,8 +41,6 @@ sampleApp.controller('UserProfileController', ['$scope', '$resource', '$routePar
     UsersService.query({}, function(users) {
       $scope.find(users);
     });
-
-    $scope.userInfo = true
 
     //Start of editing ---------------------------------------
     $scope.editorEnabled = false;
@@ -72,5 +64,6 @@ sampleApp.controller('UserProfileController', ['$scope', '$resource', '$routePar
       UsersService.save({id: $scope.user._id}, $scope.user);
       $scope.disableEditor();
     }
+    $scope.userInfo = true;
   }
 ]);
