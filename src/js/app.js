@@ -3,8 +3,7 @@
 // sampleApp module ----------------------------------------------------------------------
 var sampleApp = angular.module('sampleApp', [
     'ngRoute',
-    'sampleAppservices',
-    'app.directives.userInfo'
+    'sampleAppservices'
 ]);
 
 // Config Block ----------------------------------------------------------------------
@@ -12,15 +11,15 @@ sampleApp.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
             when('/users', {
-                template: '<users></users>',
+                template: "<users query='query' orderProp='orderProp' remove='remove(user)' user='user' users='users'></users>",
                 controller: 'ListUsersController'
             }).
             when('/users/:id', {
-                template: '<userprofile></userprofile>',
+                template: "<userprofile></userprofile>",
                 controller: 'UserProfileController'
             }).
             when('/create', {
-                template: '<createuser></createuser>',
+                template: "<createuser firstName='firstName' lastName='lastName' phone='phone' email='email' add='add()'></createuser>",
                 controller: 'ListUsersController'
             }).
             otherwise({

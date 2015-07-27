@@ -10,8 +10,14 @@
 
         <button id="Edit" ng-click="enableEditor()">Edit</button>
 
-        <!--Adding in the userInfo with a directive-->
-        <user-info ng-show="userInfo" id="Text"></user-info>
+        <!--Adding in the userInfo with a directive
+        <user-info ng-show="userInfo" id="Text"></user-info>-->
+        <p ng-show="userInfo" id="Text" style="font-size: 18px;">
+            <span>First Name: {{user.firstName}}</span>
+            <span>Last Name: {{user.lastName}}</span>
+            <span>Phone: {{user.phone}}</span>
+            <span>Email: {{user.email}}</span>
+        </p>
 
     </div>
 
