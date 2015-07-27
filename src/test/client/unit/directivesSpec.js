@@ -1,4 +1,4 @@
-describe('Unit testing userInfo', function() {
+/*describe('Unit testing userInfo', function() {
   var $compile,
       $rootScope;
 
@@ -18,4 +18,4 @@ describe('Unit testing userInfo', function() {
     expect(element.html()).toContain("First Name:", "Last Name:", "Phone:", "Email:");
     expect(element.html()).toContain("ng-binding");
   });
-});
+});*/
