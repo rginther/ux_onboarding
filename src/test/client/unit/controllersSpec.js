@@ -1,5 +1,5 @@
-//ListUsersController describe -------------------------------------------------------------------------------------
-describe('ListUsersController', function () {
+//sampleController describe -------------------------------------------------------------------------------------
+describe('sampleController', function () {
   beforeEach(module('sampleApp'));
 
   var ctrl, scope, users, service;
@@ -12,7 +12,7 @@ describe('ListUsersController', function () {
   //beforeEach --------------------------
   beforeEach(inject(function($controller, $rootScope) {
     scope = $rootScope.$new();
-    ctrl = $controller('ListUsersController', {
+    ctrl = $controller('sampleController', {
       $scope: scope
     });
   }));
@@ -39,8 +39,8 @@ describe('ListUsersController', function () {
   });
 });
 
-//UserProfileController describe -------------------------------------------------------------------------------------
-describe('UserProfileController', function() {
+//sampleController describe -------------------------------------------------------------------------------------
+describe('sampleController', function() {
   beforeEach(module('sampleApp'));
 
   var ctrl, scope, users, user, service;
@@ -53,7 +53,7 @@ describe('UserProfileController', function() {
   //beforeEach --------------------------
   beforeEach(inject(function($controller, $rootScope) {
     scope = $rootScope.$new();
-    ctrl = $controller('UserProfileController', {
+    ctrl = $controller('sampleController', {
       $scope: scope
     });
   }));

@@ -1,13 +1,3 @@
-//Directive----------------------------------------------------------------------
-/*angular.module('app.directives.userInfo', [])
-  .directive('userInfo', function() {
-    return{
-      restrict: 'E',
-      replace: true,
-      template: '<p style="font-size: 18px;"><span>First Name: {{user.firstName}}</span><span>Last Name: {{user.lastName}}</span><span>Phone: {{user.phone}}</span><span>Email: {{user.email}}</span></p>'
-    };
-  });*/
-
 sampleApp.directive('users', function() {
   return {
     restrict: 'E',
