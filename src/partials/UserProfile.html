@@ -27,8 +27,8 @@
         <input ng-model="editablephone" ng-show="editorEnabled" required><br />
         <p> {{user.email}} </p>
 
-        <input id="Save" type="submit" ng-click="save()" value="Save" ng-disabled="editForm.$invalid" />
-        <input id="Cancel" type="button" ng-click="disableEditor()" value="Cancel"/>
+        <button class="Save" id="editButtons" type="submit" ng-click="save()" ng-disabled="editForm.$invalid">Save</button>
+        <button class="Cancel" id="editButtons" type="button" ng-click="disableEditor()">Cancel</button>
     </form>
     
 </div>

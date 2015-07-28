@@ -1,3 +1,4 @@
+/*CSS overall*/
 body {
     background-color: #F5F5F5;
     padding-top:55px;
@@ -5,7 +6,6 @@ body {
 }
 
 button {
-	color: black;
 	cursor: pointer;
 	float: right;
 }
@@ -23,6 +23,18 @@ h4 {
 font-weight: normal; 
 }
 
+/*CSS for specifics*/
+#editButtons {
+    textarea:focus
+    cursor: pointer;
+    float: left;
+}
+
+#editButton.ng-invalid {
+    float: left;
+}
+
+/*CSS for validation*/
 input:focus,
 select:focus,
 textarea:focus,

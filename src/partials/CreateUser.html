@@ -3,7 +3,7 @@
 
       <legend><h1>Create User</h1></legend>
 
-      <button ng-disabled="createForm.$invalid" class="Add" type="button" ng-click="add(user)">Add User</button>
+      <button class="Add" type="button" ng-click="add(user)" ng-disabled="createForm.$invalid">Create User</button>
 
       <p class="formInput">
         <label>First Name: </label><span><input type="text" ng-model="user.firstName" placeholder="First Name" required></span>

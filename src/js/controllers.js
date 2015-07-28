@@ -2,6 +2,8 @@
 sampleApp.controller('sampleController', ['$scope', 'UsersService', '$routeParams',
   function($scope, UsersService, $routeParams) {
     $scope.users = UsersService.query();
+    $scope.orderProp = 'firstName';
+    $scope.userInfo = true;
 
 
     //remove function -----------------------------------
@@ -9,7 +11,7 @@ sampleApp.controller('sampleController', ['$scope', 'UsersService', '$routeParam
       var index = $scope.users.indexOf(user);
       $scope.users.splice(index, 1);
       UsersService.remove({ id: user._id });
-    }
+    };
 
 
     //add function -----------------------------------
@@ -19,15 +21,13 @@ sampleApp.controller('sampleController', ['$scope', 'UsersService', '$routeParam
         'lastName': user.lastName,
         'phone': user.phone,
         'email': user.email
-      }
+      };
 
       UsersService.add({}, $scope.prevUser);
       createForm.reset();
 
       $scope.userMessage = true;
     };
-
-    $scope.orderProp = 'firstName';
 
     //Looping through the users for the id -----------------------------------
     $scope.find = function(users) {
@@ -63,7 +63,6 @@ sampleApp.controller('sampleController', ['$scope', 'UsersService', '$routeParam
 
       UsersService.save({id: $scope.user._id}, $scope.user);
       $scope.disableEditor();
-    }
-    $scope.userInfo = true;
+    };
   }
 ]);

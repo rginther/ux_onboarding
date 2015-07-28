@@ -78,8 +78,6 @@ module.exports = function(grunt) {
       }
     },
 
-//Everything else -------------------------------------------------------
-
     connect: {
   	  server: {
   	    options: {
@@ -90,7 +88,6 @@ module.exports = function(grunt) {
   	  }
   	},
 
-     //watching the files for change, then reloading with LiveReload
     watch: {
       src: {
       files: [files.js, files.css, 'src/partials/*.html', 'src/index.html'],

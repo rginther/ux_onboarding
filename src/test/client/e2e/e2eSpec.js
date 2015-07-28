@@ -83,10 +83,10 @@ describe('ux_onboarding App', function() {
 
 			element(by.id('Edit')).click();
 			add('River')
-			element(by.id('Save')).click();
+			element(by.className('Save')).click();
 
 			element(by.id('Edit')).click();
-			element(by.id('Cancel')).click();
+			element(by.className('Cancel')).click();
 		});
 	});
 });
