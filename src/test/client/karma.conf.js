@@ -2,6 +2,9 @@
 // Generated on Thu Jul 02 2015 16:04:16 GMT-0500 (CDT)
 
 module.exports = function(config) {
+
+  var projectRoot = '../../../';
+
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -15,13 +18,12 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'node_modules/angular/angular.js',
-      'node_modules/angular-mocks/angular-mocks.js',
-      'node_modules/angular-route/angular-route.js',
-      'node_modules/angular-resource/angular-resource.js',
-      'app.js',
-      '*.js',
-      'test/unit/**/*.js'
+      projectRoot + 'node_modules/angular/angular.js',
+      projectRoot + 'node_modules/angular-mocks/angular-mocks.js',
+      projectRoot + 'node_modules/angular-route/angular-route.js',
+      projectRoot + 'node_modules/angular-resource/angular-resource.js',
+      projectRoot + 'src/js/*.js',
+      'unit/*.js',
     ],
 
 

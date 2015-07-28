@@ -7,7 +7,7 @@ describe('ux_onboarding App', function() {
 
 	    browser.addMockModule('userManagementMock', mockModule.signup_request);
 
-	    browser.get('http://localhost:64478');
+	    browser.get('http://localhost:8080');
 	});
 
 	
@@ -18,9 +18,8 @@ describe('ux_onboarding App', function() {
 	browser.driver.controlFlow().execute = function() {
 		var args = arguments;
 
-		// queue 150ms wait
 		origFn.call(browser.driver.controlFlow(), function() {
-			return protractor.promise.delayed(0);
+			return protractor.promise.delayed(150);
 		});
 
 		return origFn.apply(browser.driver.controlFlow(), args);
@@ -28,10 +27,10 @@ describe('ux_onboarding App', function() {
 
 	describe('ngRoute', function() {
 
-		var firstName = element(by.model('firstName'));
-		var lastName = element(by.model('lastName'));
-		var phone = element(by.model('phone'));
-		var email = element(by.model('email'));
+		var firstName = element(by.model('user.firstName'));
+		var lastName = element(by.model('user.lastName'));
+		var phone = element(by.model('user.phone'));
+		var email = element(by.model('user.email'));
 
 		function add(a, b, c, d) {
 			firstName.sendKeys(a);
@@ -40,28 +39,21 @@ describe('ux_onboarding App', function() {
 			email.sendKeys(d);
 
 			element(by.css('.Add')).click();
-			browser.switchTo().alert().accept();
 		}
 		//Create Tab-----------------------------------------------
 
 		//it------------
 		it('should test the Create User tab', function() {
 
-			//Getting the div class
 			element.all(by.className('nav')).first().click();
 
-			//Clicking the Create User tab
 			element.all(by.css('.Create User')).click();
 			expect(browser.getCurrentUrl()).toContain('create');
 
-			//Adding text to input fields
-			add('Jake','Long', '111-111-1111', 'example@email.com');
-			add('Kean','asd', '111-111-1111', 'example@email2.com');
+			add('Jake','Long', '111-111-1111', 'example@email00000.com');
 
 		});
 	});
-
-	//Ending it -----
 
 	describe('ngRoute', function() {
 		var firstName = element(by.model('editablefirstName'));
@@ -74,32 +66,25 @@ describe('ux_onboarding App', function() {
 		//it------------
 		it('should test the Users tab', function() {
 
-			//Clicking Users tab
 			element.all(by.css('.Users')).click();
 			expect(browser.getCurrentUrl()).toContain('users');
 
-			//Clicking Delete button
 			element.all(by.css('.Delete')).first().click();
 			expect(browser.getCurrentUrl()).toContain('users');
 
-			//Clicking View button
 			element.all(by.css('.ViewBtn')).first().click();
 			expect(browser.getCurrentUrl()).toContain('users/');
 
-			//Clicking Hide button
 			element(by.id('minbut')).click();
 			expect(element(by.id('Text')).isDisplayed()).toBeFalsy();
 
-			//Clicking Show button
 			element(by.id('maxbut')).click();
 			expect(element(by.id('Text')).isDisplayed()).toBeTruthy();
 
-			//Clicking Edit and Save buttons
 			element(by.id('Edit')).click();
 			add('River')
 			element(by.id('Save')).click();
 
-			//Clicking Edit and Cancel buttons
 			element(by.id('Edit')).click();
 			element(by.id('Cancel')).click();
 		});

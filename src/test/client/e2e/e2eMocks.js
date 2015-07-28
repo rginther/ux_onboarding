@@ -2,7 +2,6 @@ exports.signup_request = function() {
 	angular.module('userManagementMock', ['sampleApp', 'ngMockE2E'])
 		.run(function ($httpBackend) {
 
-			//Creates the 2 fake users
 			var usersList = [
 				{
 					'_id': 'A0A0A0A0A0A0A0A0A0A0A0A0',
