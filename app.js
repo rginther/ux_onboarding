@@ -1,12 +1,13 @@
 'use strict'; //Using STRICT text
 
-// sampleApp module
+// sampleApp module ----------------------------------------------------------------------
 var sampleApp = angular.module('sampleApp', [
-    'ngRoute',
-    'sampleAppservices'
+    'ngRoute',//ngRoute, not UI-Router
+    'sampleAppservices', //Service
+    'app.directives.userInfo' //Directive
 ]);
 
-// Config Block
+// Config Block ----------------------------------------------------------------------
 sampleApp.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
@@ -14,11 +15,11 @@ sampleApp.config(['$routeProvider',
                 templateUrl: 'templates/ListUsers.html',
                 controller: 'ListUsersController'
             }).
-            when('/users/:Id', {
+            when('/users/:id', {
                 templateUrl: 'templates/UserProfile.html',
                 controller: 'UserProfileController'
             }).
-            when('/Create', {
+            when('/create', {
                 templateUrl: 'templates/CreateUser.html',
                 controller: 'ListUsersController'
             }).
@@ -28,23 +29,20 @@ sampleApp.config(['$routeProvider',
 
 }]);
 
-//ListUsersController for sampleApp
+//ListUsersController for sampleApp----------------------------------------------------------------------
 sampleApp.controller('ListUsersController', ['$scope', 'UsersService',
   function($scope, UsersService) {
     $scope.users = UsersService.query();
 
-    /*$scope.delete = function(user) { //Doesn't work..Keeping for reference.
-      user.remove(function(){
-        $scope.users = UsersService.query();
-      });
-    }*/
-
-    $scope.remove = function(item) { 
-      var index = $scope.users.indexOf(item);
-      $scope.users.splice(index);
-      UsersService.remove({ id: item });
+    //remove function -----------------------------------
+    $scope.remove = function(user) { 
+      var index = $scope.users.indexOf(user);
+      $scope.users.splice(index, 1);
+      UsersService.remove({ id: user._id });
     }
 
+
+    //add function -----------------------------------
     $scope.add = function() {
       UsersService.add({}, {
         'firstName': this.firstName,
@@ -52,39 +50,54 @@ sampleApp.controller('ListUsersController', ['$scope', 'UsersService',
         'phone': this.phone,
         'email': this.email
       });
+
+      //This resets the createForm inputs after submit
+      document.forms['createForm'].reset()
+      alert('Thank you!');
     };
   }
 ]);  
 
-//UserProfileController for sampleApp
-sampleApp.controller('UserProfileController', ['$scope', '$routeParams', 'UsersService',
-  function($scope, $routeParams, UsersService) {
+//UserProfileController for sampleApp ----------------------------------------------------------------------
+sampleApp.controller('UserProfileController', ['$scope', '$resource', '$routeParams', 'UsersService',
+  function($scope, $resource, $routeParams, UsersService) {
 
+    //Looping through the users for the id -----------------------------------
+    $scope.find = function(users) {
+      for(var i = 0; i < users.length; i++) {
+        if (users[i]['_id'] == $routeParams.id) {
+          $scope.user = users[i];
+          break;
+        }
+      }
+    };
     UsersService.query({}, function(users) {
-      $scope.users = users;
-      
-      //Start of editing
-      $scope.editorEnabled = false;
-    
-      $scope.enableEditor = function() {
-        $scope.editorEnabled = true;
-        $scope.editablefirstName = $scope.users.firstName;
-        $scope.editablelastName = $scope.users.lastName;
-        $scope.editablephone = $scope.users.phone;
-        $scope.editableemail = $scope.users.email;
-      };
-      
-      $scope.disableEditor = function() {
-        $scope.editorEnabled = false;
-      };
-      
-      $scope.save = function() {
-        $scope.users.firstName = $scope.editablefirstName;
-        $scope.users.lastName = $scope.editablelastName;
-        $scope.users.phone = $scope.editablephone;
-        $scope.users.email = $scope.editableemail;
-        $scope.disableEditor();
-      };
+      $scope.find(users);
     });
+
+    $scope.userInfo = true
+
+    //Start of editing ---------------------------------------
+    $scope.editorEnabled = false;
+  
+    $scope.enableEditor = function() {
+      $scope.editorEnabled = true;
+      $scope.editablefirstName = $scope.user.firstName;
+      $scope.editablelastName = $scope.user.lastName;
+      $scope.editablephone = $scope.user.phone;
+    };
+    
+    $scope.disableEditor = function() {
+      $scope.editorEnabled = false;
+    };
+
+    $scope.save = function() {
+      $scope.user.firstName = $scope.editablefirstName;
+      $scope.user.lastName = $scope.editablelastName;
+      $scope.user.phone = $scope.editablephone;   
+
+      UsersService.save({id: $scope.user._id}, $scope.user);
+      $scope.disableEditor();
+    }
   }
 ]);

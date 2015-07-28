@@ -1,19 +1,23 @@
 {
-    "name" : "SampleGrunt",
-    "version" : "0.1.0",
-    "author" : "River Ginther",
-    "private" : true,
-
-    "devDependencies" : {
-        "grunt" :                       "~0.4.0", 
-        "grunt-contrib-connect":		"*",
-        "grunt-contrib-cssmin":         "*",
-        "grunt-contrib-sass":           "*",
-        "grunt-contrib-uglify":         "*",
-        "grunt-contrib-watch":          "*",
-        "grunt-cssc":                   "*",
-        "grunt-htmlhint":               "*",
-        "grunt-contrib-compass": 		"*",
-        "matchdep":                     "*"
-    }
+  "name": "SampleGrunt",
+  "version": "0.1.0",
+  "author": "River Ginther",
+  "private": true,
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib-compass": "*",
+    "grunt-contrib-connect": "*",
+    "grunt-contrib-cssmin": "*",
+    "grunt-contrib-sass": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-cssc": "*",
+    "grunt-htmlhint": "*",
+    "jasmine-core": "node_modules/jasmine-core",
+    "karma": "^0.12.37",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-jasmine": "^0.3.6",
+    "karma-ng-html2js-preprocessor": "^0.1.2",
+    "matchdep": "*"
+  }
 }
