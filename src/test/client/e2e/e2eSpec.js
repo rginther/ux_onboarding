@@ -27,10 +27,10 @@ describe('ux_onboarding App', function() {
 
 	describe('ngRoute', function() {
 
-		var firstName = element(by.model('firstName'));
-		var lastName = element(by.model('lastName'));
-		var phone = element(by.model('phone'));
-		var email = element(by.model('email'));
+		var firstName = element(by.model('user.firstName'));
+		var lastName = element(by.model('user.lastName'));
+		var phone = element(by.model('user.phone'));
+		var email = element(by.model('user.email'));
 
 		function add(a, b, c, d) {
 			firstName.sendKeys(a);
