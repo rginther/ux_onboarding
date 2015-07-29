@@ -5,26 +5,37 @@
 	<p>Search: <input ng-model="query" autofocus/></p>
 
 	<div class="organizeOptions">
+
 		Sort by:
 		<select ng-model="orderProp">
+
 			<option value="firstName">First Name</option>
 			<option value="lastName">Last Name</option>
 			<option value="email">Email</option>
 			<option value="-firstName">Reverse First Name</option>
 			<option value="-lastName">Reverse Last Name</option>
 			<option value="-email">Reverse Email</option>
+			
 		</select>
+
 	</div>
 
 	<div class="user">
+
 		<div ng-repeat="user in users | filter:query | orderBy:orderProp" id="text">
 
-			<button class="Delete" type="button" ng-click="remove(user)">Delete</button>
-			<a type="button" href="#/users/{{user._id}}"><button class="ViewBtn">View</button></a>
+			<legend>
 
-			<h4>{{user.firstName}} {{user.lastName}}</h4>
-			<legend></legend>
+				<button class="Delete" type="button" ng-click="remove(user)">Delete</button>
+
+				<a type="button" href="#/users/{{user._id}}"><button class="ViewBtn">View</button></a>
+
+				<h4>{{user.firstName}} {{user.lastName}}</h4>
+
+			</legend>
 
 		</div>
+
 	</div>
+
 </div>

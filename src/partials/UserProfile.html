@@ -1,30 +1,31 @@
 <div class="container">
 
-    <button ng-click="userInfo = false" id="minbut">Hide</button>
-    <button ng-click="userInfo = true" id="maxbut">Show</button>
+    <legend>
 
-    <p>
-        <span>
-            <h1>{{user.firstName}} {{user.lastName}}</h1>
-        </span>
-    </p>
+        <button ng-click="userInfo = false" id="minbut">Hide</button>
+        <button ng-click="userInfo = true" id="maxbut">Show</button>
 
-    <legend></legend>
+        <p><span><h1>{{user.firstName}} {{user.lastName}}</h1></span></p>
+
+    </legend>
 
     <div ng-hide="editorEnabled">
 
         <button id="Edit" ng-click="enableEditor()">Edit</button>
 
         <p ng-show="userInfo" id="Text" style="font-size: 18px;">
+
             <span>First Name: {{user.firstName}}</span>
             <span>Last Name: {{user.lastName}}</span>
             <span>Phone: {{user.phone}}</span>
             <span>Email: {{user.email}}</span>
+
         </p>
 
     </div>
 
     <form name='editForm' ng-show="editorEnabled">
+
         <input ng-model="editablefirstName" ng-show="editorEnabled" autofocus required><br />
         <input ng-model="editablelastName" ng-show="editorEnabled" required><br />
         <input ng-model="editablephone" ng-show="editorEnabled" required><br />
@@ -32,6 +33,7 @@
 
         <button class="Save" id="editButtons" type="submit" ng-click="save()" ng-disabled="editForm.$invalid">Save</button>
         <button class="Cancel" id="editButtons" type="button" ng-click="disableEditor()">Cancel</button>
+        
     </form>
-    
+
 </div>

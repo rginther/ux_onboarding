@@ -20,7 +20,20 @@ p span {
 }
 
 h4 { 
-font-weight: normal; 
+    font-weight: normal;
+}
+
+legend {
+    font-size: 15px;
+}
+
+.createField {
+    width: 250px;
+}
+
+.createFormLegend {
+    padding-bottom: 25px;
+    width: 300px;
 }
 
 .organizeOptions {
