@@ -8,7 +8,7 @@
             <h1>{{user.firstName}} {{user.lastName}}</h1>
         </span>
     </p>
-    
+
     <legend></legend>
 
     <div ng-hide="editorEnabled">
@@ -25,7 +25,7 @@
     </div>
 
     <form name='editForm' ng-show="editorEnabled">
-        <input ng-model="editablefirstName" ng-show="editorEnabled" required><br />
+        <input ng-model="editablefirstName" ng-show="editorEnabled" autofocus required><br />
         <input ng-model="editablelastName" ng-show="editorEnabled" required><br />
         <input ng-model="editablephone" ng-show="editorEnabled" required><br />
         <p> {{user.email}} </p>
