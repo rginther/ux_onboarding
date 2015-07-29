@@ -3,15 +3,18 @@
     <button ng-click="userInfo = false" id="minbut">Hide</button>
     <button ng-click="userInfo = true" id="maxbut">Show</button>
 
-    <p><span><h1>{{user.firstName}} {{user.lastName}}</h1></span></p>
+    <p>
+        <span>
+            <h1>{{user.firstName}} {{user.lastName}}</h1>
+        </span>
+    </p>
+    
     <legend></legend>
 
     <div ng-hide="editorEnabled">
 
         <button id="Edit" ng-click="enableEditor()">Edit</button>
 
-        <!--Adding in the userInfo with a directive
-        <user-info ng-show="userInfo" id="Text"></user-info>-->
         <p ng-show="userInfo" id="Text" style="font-size: 18px;">
             <span>First Name: {{user.firstName}}</span>
             <span>Last Name: {{user.lastName}}</span>

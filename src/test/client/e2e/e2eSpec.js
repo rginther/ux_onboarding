@@ -65,11 +65,12 @@ describe('ux_onboarding App', function() {
 		//Users Tab-----------------------------------------------
 		//it------------
 		it('should test the Users tab', function() {
-
 			element.all(by.css('.Users')).click();
 			expect(browser.getCurrentUrl()).toContain('users');
 
-			element.all(by.css('.Delete')).first().click();
+			element(by.model('query')).sendKeys('Test2');
+
+			element.all(by.css('.Users')).click();
 			expect(browser.getCurrentUrl()).toContain('users');
 
 			element.all(by.css('.ViewBtn')).first().click();
@@ -87,6 +88,12 @@ describe('ux_onboarding App', function() {
 
 			element(by.id('Edit')).click();
 			element(by.className('Cancel')).click();
+
+			element.all(by.css('.Users')).click();
+			expect(browser.getCurrentUrl()).toContain('users');
+
+			element.all(by.css('.Delete')).first().click();
+			expect(browser.getCurrentUrl()).toContain('users');
 		});
 	});
 });
