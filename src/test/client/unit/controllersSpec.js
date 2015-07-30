@@ -32,23 +32,6 @@ describe('sampleController', function () {
 
     expect(scope.users.firstName).toEqual('First');
   });
-});
-
-describe('sampleController', function() {
-  beforeEach(module('sampleApp'));
-
-  var ctrl, scope, users, user, service;
-
-  beforeEach(inject(function(UsersService) {
-    service = UsersService;
-  }));
-
-  beforeEach(inject(function($controller, $rootScope) {
-    scope = $rootScope.$new();
-    ctrl = $controller('sampleController', {
-      $scope: scope
-    });
-  }));
 
   it('should loop through the ids', function() {
 
