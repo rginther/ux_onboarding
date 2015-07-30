@@ -1,20 +1,15 @@
-//ListUsersController for sampleApp----------------------------------------------------------------------
 sampleApp.controller('sampleController', ['$scope', 'UsersService', '$routeParams',
   function($scope, UsersService, $routeParams) {
     $scope.users = UsersService.query();
     $scope.orderProp = 'firstName';
     $scope.userInfo = true;
 
-
-    //remove function -----------------------------------
     $scope.remove = function(user) { 
       var index = $scope.users.indexOf(user);
       $scope.users.splice(index, 1);
       UsersService.remove({ id: user._id });
     };
 
-
-    //add function -----------------------------------
     $scope.add = function(user) {
       $scope.prevUser = {
         'firstName': user.firstName,
@@ -29,7 +24,6 @@ sampleApp.controller('sampleController', ['$scope', 'UsersService', '$routeParam
       $scope.userMessage = true;
     };
 
-    //Looping through the users for the id -----------------------------------
     $scope.find = function(users) {
       for(var i = 0; i < users.length; i++) {
         if (users[i]['_id'] == $routeParams.id) {
@@ -42,7 +36,6 @@ sampleApp.controller('sampleController', ['$scope', 'UsersService', '$routeParam
       $scope.find(users);
     });
 
-    //Start of editing ---------------------------------------
     $scope.editorEnabled = false;
   
     $scope.enableEditor = function() {

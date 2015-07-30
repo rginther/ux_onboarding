@@ -1,15 +1,12 @@
-//sampleController describe -------------------------------------------------------------------------------------
 describe('sampleController', function () {
   beforeEach(module('sampleApp'));
 
   var ctrl, scope, users, service;
 
-  //beforeEach --------------------------
   beforeEach(inject(function(UsersService) {
     service = UsersService;
   }));
 
-  //beforeEach --------------------------
   beforeEach(inject(function($controller, $rootScope) {
     scope = $rootScope.$new();
     ctrl = $controller('sampleController', {
@@ -17,7 +14,6 @@ describe('sampleController', function () {
     });
   }));
 
-  //it -------------------------------------------
   it('should remove data from the list of users', function() {
 
     scope.users = [ ({_id: '55956b1d82c1ab8751cb1ddd'}, {firstName: 'River'}, {lastName: 'Ginther'}, {phone: '111-111-1111'}, {email: 'example@email1.com'}), 
@@ -28,7 +24,6 @@ describe('sampleController', function () {
     expect(scope.users.length).toEqual(1);
   });
 
-  //it -------------------------------------------
   it('should add a user to the list of users', function() {
 
     scope.users = service.add({}, {
@@ -39,18 +34,15 @@ describe('sampleController', function () {
   });
 });
 
-//sampleController describe -------------------------------------------------------------------------------------
 describe('sampleController', function() {
   beforeEach(module('sampleApp'));
 
   var ctrl, scope, users, user, service;
 
-  //beforeEach --------------------------
   beforeEach(inject(function(UsersService) {
     service = UsersService;
   }));
 
-  //beforeEach --------------------------
   beforeEach(inject(function($controller, $rootScope) {
     scope = $rootScope.$new();
     ctrl = $controller('sampleController', {
@@ -58,7 +50,6 @@ describe('sampleController', function() {
     });
   }));
 
-  //it -------------------------------------------
   it('should loop through the ids', function() {
 
     var users = [ ({_id: '55956b1d82c1ab8751cb1ddd'}, {firstName: 'River'}, {lastName: 'Ginther'}, {phone: '111-111-1111'}, {email: 'example@email1.com'}), 
@@ -71,7 +62,6 @@ describe('sampleController', function() {
     expect(scope.user).toEqual(users[0]);
   });
 
-  //it -------------------------------------------
   it('should enable editing', function() {
     scope.user = {
       firstName: 'River',
@@ -88,7 +78,6 @@ describe('sampleController', function() {
     expect(scope.editablephone).toEqual(scope.user.phone);
   });
 
-  //it -------------------------------------------
   it('should disable editing', function() {
 
     scope.disableEditor();
@@ -96,7 +85,6 @@ describe('sampleController', function() {
     expect(scope.editorEnabled).toEqual(false);
   });
 
-  //it -------------------------------------------
   it('should save the data', function() {
 
     scope.user = {

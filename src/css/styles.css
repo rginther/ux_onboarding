@@ -40,7 +40,6 @@ legend {
     padding-bottom: 15px;
 }
 
-/*CSS for specifics*/
 #editButtons {
     textarea:focus
     cursor: pointer;
@@ -50,6 +49,7 @@ legend {
 #editButton.ng-invalid {
     float: left;
 }
+
 
 /*CSS for validation*/
 input:focus,

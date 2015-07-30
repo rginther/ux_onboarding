@@ -1,6 +1,5 @@
 'use strict';
 
-//sampleAppservice Factory----------------------------------------------------------------------
 var sampleAppservices = angular.module('sampleAppservices', ['ngResource']);
 
 sampleAppservices.factory('UsersService', ['$resource',

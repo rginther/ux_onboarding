@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
 
-  // load all grunt tasks
+  // This loads all grunt tasks through matchdep
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
   var paths = {
@@ -96,11 +96,9 @@ module.exports = function(grunt) {
 
     karma: {
       options: {
-        // point all tasks to karma config file
         configFile: 'src/test/client/karma.conf.js',
       },
       unit: {
-        // run tests once instead of continuously
         singleRun: true
       }
     }
