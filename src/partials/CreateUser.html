@@ -1,15 +1,12 @@
 <div class"container">
-  
-    <form id="createForm" name="createForm">
 
+    <form id="createForm" name="createForm">
       <legend><h1>Create User</h1></legend>
 
       <button class="Add" type="button" ng-click="add(user)" ng-disabled="createForm.$invalid">Create User</button>
 
       <legend class="createFormLegend">
-
         <p class="createFormInput" >
-
           <label>First Name: </label>
           <span><input class="createField" type="text" ng-model="user.firstName" placeholder="First Name" autofocus required></span>
 
@@ -21,13 +18,10 @@
 
           <label>Email: </label>
           <span><input class="createField" type="email" ng-model="user.email" placeholder="example@email.com" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"></span>
-
         </p>
 
         <div class="alert alert-success" role="alert" ng-show="userMessage">{{prevUser.firstName}} {{prevUser.lastName}} has been created!</div>
-
       </legend>
-
     </form>
 
 </div>
