@@ -1,12 +1,10 @@
-'use strict'; //Using STRICT text
+'use strict';
 
-// sampleApp module ----------------------------------------------------------------------
 var sampleApp = angular.module('sampleApp', [
     'ngRoute',
     'sampleAppservices'
 ]);
 
-// Config Block ----------------------------------------------------------------------
 sampleApp.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.

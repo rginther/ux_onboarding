@@ -12,7 +12,7 @@ describe('ux_onboarding App', function() {
 
 	
 
-	//This allows you to view the window being tested better by slowing it down -----
+	//This allows you to view the window being tested better by slowing it down
 	var origFn = browser.driver.controlFlow().execute;
 
 	browser.driver.controlFlow().execute = function() {
@@ -40,9 +40,7 @@ describe('ux_onboarding App', function() {
 
 			element(by.css('.Add')).click();
 		}
-		//Create Tab-----------------------------------------------
 
-		//it------------
 		it('should test the Create User tab', function() {
 
 			element.all(by.className('nav')).first().click();
@@ -62,14 +60,13 @@ describe('ux_onboarding App', function() {
 			firstName.sendKeys(a);
 		}
 
-		//Users Tab-----------------------------------------------
-		//it------------
 		it('should test the Users tab', function() {
-
 			element.all(by.css('.Users')).click();
 			expect(browser.getCurrentUrl()).toContain('users');
 
-			element.all(by.css('.Delete')).first().click();
+			element(by.model('query')).sendKeys('Test2');
+
+			element.all(by.css('.Users')).click();
 			expect(browser.getCurrentUrl()).toContain('users');
 
 			element.all(by.css('.ViewBtn')).first().click();
@@ -83,10 +80,16 @@ describe('ux_onboarding App', function() {
 
 			element(by.id('Edit')).click();
 			add('River')
-			element(by.id('Save')).click();
+			element(by.className('Save')).click();
 
 			element(by.id('Edit')).click();
-			element(by.id('Cancel')).click();
+			element(by.className('Cancel')).click();
+
+			element.all(by.css('.Users')).click();
+			expect(browser.getCurrentUrl()).toContain('users');
+
+			element.all(by.css('.Delete')).first().click();
+			expect(browser.getCurrentUrl()).toContain('users');
 		});
 	});
 });
